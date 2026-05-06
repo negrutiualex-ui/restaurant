@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ya Habibi — Lebanese Restaurant by Chef Rabih · Oradea</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sand: #f2ebe0;
+    --sand-dark: #e8ddd0;
+    --night: #0f0c08;
+    --spice: #c4622d;
+    --spice-light: #e8855a;
+    --olive: #5a6b3a;
+    --gold: #d4a843;
+    --cream: #faf7f2;
+    --text: #1e1a14;
+    --muted: #8a7d6a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(242, 235, 224, 0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(196, 98, 45, 0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--night);
+    letter-spacing: 1px;
+  }
+
+  .nav-logo span { color: var(--spice); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--spice); }
+
+  .nav-order {
+    background: var(--spice);
+    color: white !important;
+    padding: 0.6rem 1.5rem;
+    border-radius: 2px;
+    transition: background 0.3s !important;
+  }
+
+  .nav-order:hover { background: var(--spice-light) !important; color: white !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 70% 50%, #3d1f0a 0%, #1a0d05 50%, #0f0c08 100%);
+  }
+
+  /* Geometric Islamic pattern overlay */
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: 
+      repeating-linear-gradient(0deg, #d4a843 0, #d4a843 1px, transparent 0, transparent 50%),
+      repeating-linear-gradient(90deg, #d4a843 0, #d4a843 1px, transparent 0, transparent 50%);
+    background-size: 40px 40px;
+  }
+
+  .hero-glow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 55%;
+    background: radial-gradient(ellipse at 60% 40%, rgba(196,98,45,0.2) 0%, transparent 65%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 6rem;
+    max-width: 700px;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-eyebrow-line {
+    width: 40px;
+    height: 1px;
+    background: var(--spice);
+  }
+
+  .hero-eyebrow-text {
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--spice-light);
+  }
+
+  .hero-arabic {
+    font-size: 3.5rem;
+    color: rgba(212, 168, 67, 0.15);
+    font-family: serif;
+    position: absolute;
+    right: 8rem;
+    top: 50%;
+    transform: translateY(-60%);
+    letter-spacing: 8px;
+    line-height: 1.2;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5.5vw, 5.5rem);
+    font-weight: 400;
+    line-height: 1.08;
+    color: white;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 0.9rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 2.5rem;
+    max-width: 420px;
+  }
+
+  .hero-rating {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-stars {
+    color: var(--gold);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
+
+  .hero-rating-text {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .hero-rating-score {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-spice {
+    background: var(--spice);
+    color: white;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.3s, transform 0.3s;
+    display: inline-block;
+  }
+
+  .btn-spice:hover { background: var(--spice-light); transform: translateY(-2px); }
+
+  .btn-ghost {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(212,168,67,0.4);
+    padding-bottom: 2px;
+    transition: color 0.3s;
+    display: inline-block;
+    align-self: center;
+  }
+
+  .btn-ghost:hover { color: var(--gold); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 3rem;
+    left: 6rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .hero-scroll-line {
+    width: 50px;
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+  }
+
+  /* QUICK INFO */
+  .quick-info {
+    background: var(--spice);
+    padding: 1.5rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .quick-info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: white;
+    font-size: 0.85rem;
+  }
+
+  .quick-info-item span { opacity: 0.7; }
+
+  .quick-info-item a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  /* STORY */
+  .story {
+    padding: 8rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7rem;
+    align-items: center;
+  }
+
+  .story-visual {
+    position: relative;
+  }
+
+  .story-img-main {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(145deg, #3d1f0a 0%, #6b3520 50%, #4a2010 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .story-img-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.08;
+    background-image: 
+      repeating-linear-gradient(45deg, #d4a843 0, #d4a843 1px, transparent 0, transparent 30px),
+      repeating-linear-gradient(-45deg, #d4a843 0, #d4a843 1px, transparent 0, transparent 30px);
+  }
+
+  .story-img-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .chef-badge {
+    position: absolute;
+    bottom: -2rem;
+    right: -2rem;
+    background: var(--night);
+    color: white;
+    padding: 2rem;
+    width: 150px;
+    text-align: center;
+    border-top: 3px solid var(--gold);
+  }
+
+  .chef-badge-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .chef-badge-title {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .story-tag {
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--spice);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .story-tag::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: var(--spice);
+  }
+
+  .story-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--night);
+    margin-bottom: 1.5rem;
+  }
+
+  .story-title em { font-style: italic; color: var(--spice); }
+
+  .story-text {
+    font-size: 0.9rem;
+    line-height: 2;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+  }
+
+  /* MENU SECTION */
+  .menu-sec {
+    background: var(--night);
+    padding: 8rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .menu-sec::before {
+    content: 'يا حبيبي';
+    position: absolute;
+    top: 50%;
+    right: -2rem;
+    transform: translateY(-50%);
+    font-size: 18rem;
+    color: rgba(212,168,67,0.03);
+    font-family: serif;
+    white-space: nowrap;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .menu-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .menu-tag {
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--spice-light);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .menu-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 4vw, 3.8rem);
+    font-weight: 400;
+    color: white;
+    line-height: 1.1;
+  }
+
+  .menu-title em { font-style: italic; color: var(--gold); }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(212,168,67,0.08);
+    position: relative;
+    z-index: 1;
+    margin-bottom: 3rem;
+  }
+
+  .menu-card {
+    background: #151008;
+    padding: 2.5rem;
+    transition: background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .menu-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--spice);
+    transition: height 0.4s;
+  }
+
+  .menu-card:hover { background: #1c1208; }
+  .menu-card:hover::before { height: 100%; }
+
+  .menu-card-emoji {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .menu-card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: white;
+    margin-bottom: 0.6rem;
+    font-weight: 400;
+  }
+
+  .menu-card-desc {
+    font-size: 0.8rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .menu-link {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* REVIEWS */
+  .reviews {
+    padding: 8rem 5rem;
+    background: var(--sand);
+  }
+
+  .reviews-header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .review-score-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    font-weight: 700;
+    color: var(--spice);
+    line-height: 1;
+    display: block;
+  }
+
+  .review-stars {
+    color: var(--gold);
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  .review-count {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .review-card {
+    background: white;
+    padding: 2.5rem;
+    position: relative;
+    border-left: 3px solid var(--spice);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  }
+
+  .review-card::before {
+    content: '"';
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--spice);
+    opacity: 0.1;
+    line-height: 1;
+  }
+
+  .review-stars-sm {
+    color: var(--gold);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .review-text {
+    font-size: 0.88rem;
+    line-height: 1.85;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+
+  .review-author {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .review-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .review-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .review-meta {
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 0.2rem;
+  }
+
+  /* SERVICES */
+  .services {
+    background: var(--spice);
+    padding: 4rem 5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .service-item {
+    text-align: center;
+    color: white;
+  }
+
+  .service-icon { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
+
+  .service-label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+
+  /* CONTACT */
+  .contact-sec {
+    padding: 8rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+  }
+
+  .contact-info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-row {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .contact-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--spice);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    color: white;
+  }
+
+  .contact-label {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--spice);
+    margin-bottom: 0.4rem;
+  }
+
+  .contact-val {
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .contact-val a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .contact-val a:hover { color: var(--spice); }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--night);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-title em { font-style: italic; color: var(--spice); }
+
+  .f-group { display: flex; flex-direction: column; gap: 0.5rem; }
+
+  .f-label {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .f-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(196,98,45,0.25);
+    padding: 0.8rem 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .f-input:focus { border-color: var(--spice); }
+  .f-input::placeholder { color: #c8b89a; }
+
+  .f-submit {
+    background: var(--spice);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+    transition: background 0.3s;
+  }
+
+  .f-submit:hover { background: var(--spice-light); }
+
+  /* FOOTER */
+  footer {
+    background: var(--night);
+    padding: 3rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(212,168,67,0.1);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: white;
+  }
+
+  .footer-logo span { color: var(--spice); }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.3);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-copy {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.2);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.7s ease 0.1s both; }
+  .hero h1 { animation: fadeUp 0.7s ease 0.3s both; }
+  .hero-sub { animation: fadeUp 0.7s ease 0.5s both; }
+  .hero-rating { animation: fadeUp 0.7s ease 0.6s both; }
+  .hero-actions { animation: fadeUp 0.7s ease 0.7s both; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero-content { padding: 0 2rem; }
+    .hero-arabic { display: none; }
+    .quick-info { padding: 1.5rem 2rem; }
+    .story { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
+    .menu-sec { padding: 4rem 2rem; }
+    .menu-grid { grid-template-columns: 1fr; }
+    .reviews { padding: 4rem 2rem; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .services { padding: 3rem 2rem; }
+    .contact-sec { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
+    footer { flex-direction: column; padding: 2rem; text-align: center; }
+    .footer-links { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Ya <span>Habibi</span></div>
+  <ul class="nav-links">
+    <li><a href="#poveste">Povestea</a></li>
+    <li><a href="#meniu">Meniu</a></li>
+    <li><a href="#recenzii">Recenzii</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://yahabibi.ro" target="_blank" class="nav-order">Comandă online</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-arabic">يا<br>حبيبي</div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <div class="hero-eyebrow-text">Lebanese Restaurant · Oradea · Chef Rabih</div>
+    </div>
+    <h1>Gustul <em>autentic</em><br>al Libanului<br>în inima Oradiei</h1>
+    <p class="hero-sub">Preparate libaneze tradiționale, condimentate cu pasiune și servite cu ospitalitatea specifică Orientului Mijlociu. O experiență culinară unică în România.</p>
+    <div class="hero-rating">
+      <span class="hero-rating-score">4.9</span>
+      <span class="hero-stars">★★★★★</span>
+      <span class="hero-rating-text">324 recenzii Google</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-spice">Rezervă o masă</a>
+      <a href="https://yahabibi.ro" target="_blank" class="btn-ghost">Comandă online</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    Descoperă
+  </div>
+</section>
+
+<!-- QUICK INFO -->
+<div class="quick-info">
+  <div class="quick-info-item">
+    <span>📍</span>
+    <div>Strada Barbu Ștefănescu Delavrancea 3, Oradea</div>
+  </div>
+  <div class="quick-info-item">
+    <span>📞</span>
+    <a href="tel:0742200441">0742 200 441</a>
+  </div>
+  <div class="quick-info-item">
+    <span>🌐</span>
+    <a href="https://yahabibi.ro" target="_blank">yahabibi.ro</a>
+  </div>
+  <div class="quick-info-item">
+    <span>🕐</span>
+    <div>Deschis · Închide la 23:00</div>
+  </div>
+  <div class="quick-info-item">
+    <span>💰</span>
+    <div>60 – 160 lei / persoană</div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story" id="poveste">
+  <div class="story-visual">
+    <div class="story-img-main">
+      <div class="story-img-pattern"></div>
+      <div class="story-img-center">
+        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" opacity="0.2">
+          <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35" fill="#d4a843"/>
+        </svg>
+      </div>
+    </div>
+    <div class="chef-badge">
+      <div class="chef-badge-name">Chef Rabih</div>
+      <div class="chef-badge-title">Master Chef · Liban</div>
+    </div>
+  </div>
+
+  <div class="story-content">
+    <div class="story-tag">Povestea noastră</div>
+    <h2 class="story-title">O bucătărie adusă<br>din <em>inima Libanului</em></h2>
+    <p class="story-text">Ya Habibi — „Oh, dragul meu" în arabă — este mai mult decât un restaurant. Este o declarație de dragoste față de bucătăria libaneză autentică, adusă în Oradea de Chef Rabih cu pasiune și devoțiune.</p>
+    <p class="story-text">Fiecare preparat este gătit după rețete tradiționale libaneze, cu condimente aduse direct din Orient. De la hummus cremos la kebab suculent, fiecare îmbucătură te transportă pe malurile Mediteranei.</p>
+    <p class="story-text">Cu un scor de 4.9 din 5, suntem mândri să fim unul dintre cele mai apreciate restaurante etnice din Oradea.</p>
+
+    <div style="display:flex;gap:3rem;margin-top:2.5rem;">
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--spice);font-weight:700;line-height:1;">4.9</div>
+        <div style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:0.3rem;">Rating Google</div>
+      </div>
+      <div style="width:1px;background:rgba(196,98,45,0.2);"></div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--spice);font-weight:700;line-height:1;">324</div>
+        <div style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:0.3rem;">Recenzii</div>
+      </div>
+      <div style="width:1px;background:rgba(196,98,45,0.2);"></div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--spice);font-weight:700;line-height:1;">100%</div>
+        <div style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:0.3rem;">Autentic libanez</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-sec" id="meniu">
+  <div class="menu-header">
+    <span class="menu-tag">— Preparatele noastre —</span>
+    <h2 class="menu-title">Savori din <em>Orient</em></h2>
+  </div>
+
+  <div class="menu-grid">
+    <div class="menu-card">
+      <span class="menu-card-emoji">🥙</span>
+      <div class="menu-card-name">Kebab</div>
+      <div class="menu-card-desc">Carne marinată în condimente libaneze, gătită la grătar și servită cu lipie proaspătă și sosuri tradiționale.</div>
+    </div>
+    <div class="menu-card">
+      <span class="menu-card-emoji">🍱</span>
+      <div class="menu-card-name">Platou aperitive</div>
+      <div class="menu-card-desc">Selecție de aperitive libaneze tradiționale — hummus, mutabal, fattoush și falafel, perfecte pentru împărtășit.</div>
+    </div>
+    <div class="menu-card">
+      <span class="menu-card-emoji">🍢</span>
+      <div class="menu-card-name">Grill Mix</div>
+      <div class="menu-card-desc">Asortiment de carne la grătar — pui, vită și miel — condimentate după rețete autentice libaneze.</div>
+    </div>
+    <div class="menu-card">
+      <span class="menu-card-emoji">🍔</span>
+      <div class="menu-card-name">Hamburger</div>
+      <div class="menu-card-desc">Burger cu influențe libaneze, carne de calitate superioară și sosuri de casă preparate de Chef Rabih.</div>
+    </div>
+    <div class="menu-card">
+      <span class="menu-card-emoji">🍟</span>
+      <div class="menu-card-name">Cartofi prăjiți</div>
+      <div class="menu-card-desc">Cartofi crocanți, condimentați cu amestec de mirodenii orientale și serviți cu sos de usturoi libanez.</div>
+    </div>
+    <div class="menu-card">
+      <span class="menu-card-emoji">🍮</span>
+      <div class="menu-card-name">Baclava</div>
+      <div class="menu-card-desc">Desertul tradițional al Orientului Mijlociu — foi fine cu nuci și miere, preparat după rețeta originală libaneză.</div>
+    </div>
+  </div>
+
+  <div class="menu-link">
+    <a href="https://yahabibi.ro" target="_blank" class="btn-spice">Vezi meniu complet</a>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="recenzii">
+  <div class="reviews-header">
+    <span class="review-score-big">4.9</span>
+    <span class="review-stars">★★★★★</span>
+    <span class="review-count">Bazat pe 324 recenzii Google</span>
+  </div>
+
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars-sm">★★★★★</div>
+      <p class="review-text">"Mâncarea este absolut delicioasă, în special platoul cu aperitive. Este o idee excelentă să iei și platoul cu grill mix — data viitoare vei ști ce să comanzi!"</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background:#c4622d;">C</div>
+        <div>
+          <div class="review-name">Cristian Bratu</div>
+          <div class="review-meta">Local Guide · 203 recenzii · acum 2 luni</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars-sm">★★★★★</div>
+      <p class="review-text">"Delicios la Ya Habibi. Preparatele au fost gustoase, bine condimentate și servite proaspete. Se simte atenția pentru arome și detalii, iar porțiile sunt generoase."</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background:#5a6b3a;">O</div>
+        <div>
+          <div class="review-name">Oana David</div>
+          <div class="review-meta">Local Guide · 138 recenzii · acum 2 luni</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars-sm">★★★★★</div>
+      <p class="review-text">"Am petrecut vara în Liban și mi-a fost dor de mâncarea libaneză. La Ya Habibi m-am simțit ca acasă. Mâncarea 100% autentică și bogată în arome, exact ca în Liban!"</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background:#6b3520;">D</div>
+        <div>
+          <div class="review-name">Daniela Nusfelean</div>
+          <div class="review-meta">4 recenzii · acum 7 luni</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<div class="services">
+  <div class="service-item">
+    <span class="service-icon">🍽️</span>
+    <div class="service-label">Servire la masă</div>
+  </div>
+  <div class="service-item">
+    <span class="service-icon">🛍️</span>
+    <div class="service-label">La pachet</div>
+  </div>
+  <div class="service-item">
+    <span class="service-icon">🚚</span>
+    <div class="service-label">Livrare fără contact</div>
+  </div>
+  <div class="service-item">
+    <span class="service-icon">📱</span>
+    <div class="service-label">Comandă online</div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact-sec" id="contact">
+  <div>
+    <div class="story-tag">Vino la noi</div>
+    <h2 class="story-title">Rezervă o <em>masă</em></h2>
+    <p class="story-text">Te așteptăm să descoperi autenticul libanez în inima Oradiei.</p>
+    <div class="contact-info-block" style="margin-top:2rem;">
+      <div class="contact-row">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Adresă</div>
+          <div class="contact-val">Strada Barbu Ștefănescu Delavrancea 3<br>410197 Oradea, România</div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Telefon</div>
+          <div class="contact-val"><a href="tel:0742200441">0742 200 441</a></div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">🌐</div>
+        <div>
+          <div class="contact-label">Website & Comandă online</div>
+          <div class="contact-val"><a href="https://yahabibi.ro" target="_blank">yahabibi.ro</a></div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <div class="contact-label">Program</div>
+          <div class="contact-val">Zilnic · 10:00 – 23:00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <h3 class="form-title">Trimite o <em>rezervare</em></h3>
+    <div class="f-group">
+      <label class="f-label">Nume complet</label>
+      <input type="text" class="f-input" placeholder="Numele tău">
+    </div>
+    <div class="f-group">
+      <label class="f-label">Telefon</label>
+      <input type="tel" class="f-input" placeholder="+40 000 000 000">
+    </div>
+    <div class="f-group">
+      <label class="f-label">Data & Ora</label>
+      <input type="text" class="f-input" placeholder="ex: 20 Mai, ora 19:00">
+    </div>
+    <div class="f-group">
+      <label class="f-label">Număr persoane</label>
+      <input type="number" class="f-input" placeholder="2">
+    </div>
+    <div class="f-group">
+      <label class="f-label">Mențiuni speciale</label>
+      <input type="text" class="f-input" placeholder="Alergii, ocazie specială...">
+    </div>
+    <button class="f-submit">Trimite rezervarea</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Ya <span>Habibi</span></div>
+  <ul class="footer-links">
+    <li><a href="#poveste">Despre</a></li>
+    <li><a href="#meniu">Meniu</a></li>
+    <li><a href="#recenzii">Recenzii</a></li>
+    <li><a href="https://yahabibi.ro" target="_blank">Comandă online</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Ya Habibi · Lebanese Restaurant by Chef Rabih · Oradea</div>
+</footer>
+
+</body>
+</html>
